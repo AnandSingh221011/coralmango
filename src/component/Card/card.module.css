@@ -1,0 +1,33 @@
+/* VStackStyles.module.css */
+
+.vStackContainer {
+  gap: 16px;
+  width: 100%;
+}
+
+.sortButton {
+  background-color: #152e73;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.sortButton:hover {
+  transform: scale(1.1);
+  background-color: #152e73;
+  color: #f7c544;
+}
+
+.cardContainer {
+  padding: 1.25rem;
+  box-shadow: var(--chakra-shadows-md);
+  border-width: 1px;
+  border-radius: var(--chakra-radii-lg);
+  background: white;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.cardContainerHover:hover {
+  box-shadow: var(--chakra-shadows-xl);
+  transform: scale(1.1);
+}

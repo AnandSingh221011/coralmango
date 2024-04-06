@@ -1,0 +1,46 @@
+/* TableView.module.css */
+
+.table {
+  max-width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  border-radius: var(--chakra-radii-lg);
+  overflow: hidden;
+  background: white;
+}
+
+.tableRow {
+  background-color: #152e73;
+}
+.tableHeaderRow {
+  color: #f2f6fe;
+  position: relative;
+}
+
+.tableHeaderHover:hover {
+  background-color: #f2f6fe;
+  transform: scale(1.2);
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0);
+  color: black;
+}
+
+.sortButton {
+  background-color: #152e73;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.sortButton:hover {
+  transform: scale(1.1);
+  background-color: #152e73;
+  color: #f7c544;
+}
+
+.tableData:hover {
+  background-color: var(--chakra-colors-gray-50);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s;
+}

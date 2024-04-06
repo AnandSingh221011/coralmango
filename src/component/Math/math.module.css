@@ -1,0 +1,27 @@
+/* Math.module.css */
+
+.calculateButton {
+  background-color: #152e73;
+  color: white;
+}
+
+.calculateButtonHover:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+  background-color: #152e73;
+  color: #f7c544;
+}
+
+.resultBox {
+  padding: 1.25rem;
+  box-shadow: var(--chakra-shadows-md);
+  border-width: 1px;
+  border-radius: var(--chakra-radii-lg);
+  background: white;
+  transition: transform 0.2s;
+}
+
+.resultBoxHover:hover {
+  box-shadow: var(--chakra-shadows-xl);
+  transform: scale(1.05);
+}

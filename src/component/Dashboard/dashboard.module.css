@@ -1,0 +1,44 @@
+/* DashboardStyles.module.css */
+
+.dashBoxContainer {
+  justify-content: center;
+  align-items: center;
+}
+
+.flexColumn {
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: full;
+}
+
+.searchInput {
+  background-color: #ffffff;
+}
+
+.filteredResultsBanner {
+  justify-content: center;
+  background-color: #cce5ff;
+  border-radius: 4px;
+  padding: 10px;
+  gap: 15px;
+}
+
+.viewToggleButton {
+  background-color: #102c7a;
+  color: white;
+}
+
+.viewToggleButton:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+  background-color: #152e73;
+  color: #f7c544;
+}
+
+.carBoxContainer {
+  margin: auto;
+  padding: 10px;
+  border-radius: 15%;
+}
