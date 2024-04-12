@@ -14,16 +14,14 @@ export const Math = () => {
     const a = [1, 3, 5, 2, 4];
 
     // First Answer
-    const result1 = a.filter(
-      (element, index) => index === a.length - 1 || element % 2 !== 0
-    );
+    const result1 = a.filter((element, index) => index % 2 === 0);
 
     //Second Answer
     const result2 = a.map((element) => element * element);
 
     //Third Answer
     const result3 = a
-      .filter((element) => element % 2 !== 0)
+      .filter((element, index) => index % 2 === 0)
       .map((element) => element * element);
 
     setResults({ result1, result2, result3 });

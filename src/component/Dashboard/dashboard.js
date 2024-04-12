@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { FaIdCard } from "react-icons/fa";
 import { FaTable } from "react-icons/fa6";
 import { Box, Flex, Input, Button } from "@chakra-ui/react";
@@ -7,68 +5,20 @@ import { TableView } from "../Table/table";
 import { CardView } from "../Card/card";
 import styles from "./dashboard.module.css";
 import classNames from "classnames";
+import { useDashboard } from "../Context/DashBoardContext";
 
 export const Dashboard = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [data, setData] = useState([]);
-  const [viewType, setViewType] = useState("table");
-  const [filteredData, setFilteredData] = useState([]);
-  const [sortDirectionName, setSortDirectionName] = useState(null);
-  const [sortDirectionAge, setSortDirectionAge] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      await axios
-        .get("https://coralmango.com/api/react-test")
-        .then((res) => {
-          console.log(res);
-          setData(res.data);
-          setFilteredData(res.data);
-        })
-        .catch((e) => {
-          setData([{ message: "Error in Fetching the Data" }]);
-        });
-    };
-    fetchData();
-  }, []);
-
-  const handleSearchName = (e) => {
-    setInputValue(e.target.value);
-    if (!e.target.value) {
-      setFilteredData(data);
-    } else {
-      setFilteredData(
-        data.filter((obj) =>
-          obj.name.toLowerCase().includes(e.target.value.toLowerCase())
-        )
-      );
-    }
-  };
-
-  const handleSortByName = () => {
-    const isAsc = sortDirectionName !== "asc";
-    const sortedData = [...filteredData].sort((a, b) => {
-      const nameA = a.name.toLowerCase(),
-        nameB = b.name.toLowerCase();
-      return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
-    });
-    if (!isAsc) sortedData.reverse();
-    setFilteredData(sortedData);
-    setSortDirectionName(isAsc ? "asc" : "desc");
-    setSortDirectionAge(null);
-  };
-
-  const handleSortByAge = () => {
-    const isAsc = sortDirectionAge !== "asc";
-    const sortedData = [...filteredData].sort((a, b) => a.age - b.age);
-    if (!isAsc) sortedData.reverse();
-    setFilteredData(sortedData);
-    setSortDirectionAge(isAsc ? "asc" : "desc");
-    setSortDirectionName(null);
-  };
-
-  const toggleView = () => {
-    setViewType(viewType === "table" ? "cards" : "table");
-  };
+  const {
+    inputValue,
+    filteredData,
+    viewType,
+    toggleViewType,
+    handleSearchName,
+    handleSortByName,
+    handleSortByAge,
+    sortDirectionName,
+    sortDirectionAge,
+  } = useDashboard();
 
   return (
     <Box className={styles.dashBoxContainer}>
@@ -106,7 +56,7 @@ export const Dashboard = () => {
               color: "#f7c544",
             },
           }}
-          onClick={toggleView}
+          onClick={toggleViewType}
           leftIcon={viewType === "table" ? <FaIdCard /> : <FaTable />}
         >
           Switch to {viewType === "table" ? "Card" : "Table"} View
