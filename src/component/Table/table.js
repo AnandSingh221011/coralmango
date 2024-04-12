@@ -12,12 +12,11 @@ import {
 } from "@chakra-ui/react";
 import styles from "./table.module.css";
 import classNames from "classnames";
+import { useDashboard } from "../Context/DashBoardContext";
 
-export const TableView = ({
-  filteredData,
-  handleSortByName,
-  handleSortByAge,
-}) => {
+export const TableView = () => {
+  const { filteredData, handleSortByName, handleSortByAge } = useDashboard();
+
   return (
     <Flex direction="column" align="center" className={styles.tableContainer}>
       <Flex gap={4}>

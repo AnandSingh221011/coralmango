@@ -8,17 +8,8 @@ import classNames from "classnames";
 import { useDashboard } from "../Context/DashBoardContext";
 
 export const Dashboard = () => {
-  const {
-    inputValue,
-    filteredData,
-    viewType,
-    toggleViewType,
-    handleSearchName,
-    handleSortByName,
-    handleSortByAge,
-    sortDirectionName,
-    sortDirectionAge,
-  } = useDashboard();
+  const { inputValue, viewType, toggleViewType, handleSearchName } =
+    useDashboard();
 
   return (
     <Box className={styles.dashBoxContainer}>
@@ -64,23 +55,11 @@ export const Dashboard = () => {
       </Flex>
       {viewType === "table" ? (
         <Box className={styles.carBoxContainer}>
-          <TableView
-            filteredData={filteredData}
-            handleSortByName={handleSortByName}
-            handleSortByAge={handleSortByAge}
-            sortDirectionName={sortDirectionName}
-            sortDirectionAge={sortDirectionAge}
-          />
+          <TableView />
         </Box>
       ) : (
         <Box className={styles.carBoxContainer}>
-          <CardView
-            filteredData={filteredData}
-            handleSortByName={handleSortByName}
-            handleSortByAge={handleSortByAge}
-            sortDirectionName={sortDirectionName}
-            sortDirectionAge={sortDirectionAge}
-          />
+          <CardView />
         </Box>
       )}
     </Box>

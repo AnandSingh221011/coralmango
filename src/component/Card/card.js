@@ -13,12 +13,11 @@ import {
 import { BsFillPersonFill } from "react-icons/bs";
 import styles from "./card.module.css";
 import classNames from "classnames";
+import { useDashboard } from "../Context/DashBoardContext";
 
-export const CardView = ({
-  filteredData,
-  handleSortByName,
-  handleSortByAge,
-}) => {
+export const CardView = () => {
+  const { filteredData, handleSortByName, handleSortByAge } = useDashboard();
+
   return (
     <VStack spacing={4} align="stretch">
       <Flex gap={4}>
